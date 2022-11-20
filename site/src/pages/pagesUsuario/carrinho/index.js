@@ -1,24 +1,21 @@
 import './index.scss'
-
 import { useEffect, useState } from 'react';
-
-import Storage from 'local-storage';
-
+// import Storage from 'local-storage';
 // import { buscarProdutoPorId } from '../../api/produtoAPI';
-
-import CarrinhoItem from '../../../components/carrinho';
-
+import CarrinhoItem from '../../../components/carrinhoItem1';
 import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Carrinho() {
 
     const [itens, setItens] = useState([]);
     const navigate = useNavigate();
 
-
     function irPedido() {
         navigate('/pedido');
     }
+
 
 
 
@@ -70,7 +67,7 @@ export default function Carrinho() {
 
 
     return (
-        <main className='carrinho'>
+        <main className='main-carrinho'>
 
             <header className='header-carrinho'>
                 <div className='div-row-header-logo'>

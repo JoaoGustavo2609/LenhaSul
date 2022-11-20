@@ -1,8 +1,10 @@
 import './index.scss';
-import RodapeMenu from '../../../components/rodape-menu'
+import RodapeMenu from '../../../components/rodape-menu';
 import { buscarimagem, ListarPizzaSalgada } from '../../../api/usuarioAPI';
 import { useNavigate } from 'react-router-dom';
+// import {toast} from 'react-toastify';
 import { useState, useEffect} from 'react';
+// import Storage from 'local-storage';
 
 export default function Index() {
 
@@ -31,7 +33,24 @@ export default function Index() {
 
     function Carrinho() {
         navigate('/carrinho');
+
     }
+
+    // function AdicionarAoCarrinho() {
+    //     let carrinho = [];
+    //     if (Storage('carrinho')) {
+    //         carrinho = Storage('carrinho');
+    //     }    
+    //     if(carrinho.find(item => item.id === id)) {
+    //         carrinho.push({
+    //             id: id,
+    //             qtd: 1
+    //         })
+    //         Storage('carrinho', carrinho);
+
+    //     }
+    //     toast.dark('Produto adicionado ao carrinho');
+    // }
 
     return (
 
@@ -77,6 +96,8 @@ export default function Index() {
                         </div>
                     )}
                 </div>
+
+                {/* <button onClick={AdicionarAoCarrinho}>Adicionar ao carrinho</button> */}
 
             <section className='rodape-detalhes'>
               <RodapeMenu/>

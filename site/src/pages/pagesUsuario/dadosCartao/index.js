@@ -53,6 +53,37 @@ export default function Index() {
           }
           }
         }
+
+
+        async function salvarPedido() {
+
+            try {
+                let produtos = Storage('carrinho');
+                let id = Storage('cliente-logado').id;
+    
+                let pedido =
+                {
+                    tipoPagamento: 'Cartão',
+                    cartao: {
+                        nome: nome,
+                        numero: numero,
+                        vencimento: vencimento,
+                        codSeguranca: cvv,
+                    },
+                    produtos: produtos
+                }
+    
+                const r = await salvarPedido(id, pedido);
+                toast.dark('Pedido foi inserido com sucesso');
+                Storage('carrinho', []);
+                navigate('/');
+    
+            }
+            catch (err) {
+                toast.error(err.response.data.erro);
+            }
+    
+        }
   
   
 
@@ -114,7 +145,7 @@ export default function Index() {
                 </div>
 
                 <div className='div-botao'>
-                    <button className='finalizar' disabled={carregando} onClick={onClick}>Finalizar Compra</button>
+                    <button className='finalizar' disabled={carregando} onClick={onClick + salvarPedido}>Finalizar Compra</button>
                 </div>
             </section>
 
